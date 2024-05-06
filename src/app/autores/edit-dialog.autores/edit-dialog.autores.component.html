@@ -1,0 +1,45 @@
+<form [formGroup]="autorForm" class="formulario">
+  <mat-form-field class="input">
+    <mat-label>Nombre:</mat-label>
+    <input matInput type="text" formControlName="nombre" [(ngModel)]="nombre" />
+    <mat-error *ngIf="autorForm.get('nombre')?.invalid && autorForm.get('nombre')?.touched">
+      El nombre es necesario.
+    </mat-error>
+  </mat-form-field>
+  <br />
+
+  <mat-form-field class="input">
+    <mat-label>Apellidos:</mat-label>
+    <input matInput type="text" formControlName="apellidos" [(ngModel)]="apellidos" />
+    <mat-error *ngIf="autorForm.get('apellidos')?.invalid && autorForm.get('apellidos')?.touched">
+      Los apellidos son necesarios.
+    </mat-error>
+  </mat-form-field>
+  <br />
+
+  <mat-form-field class="input">
+    <mat-label>Email:</mat-label>
+    <input matInput type="text" formControlName="email" [(ngModel)]="email" />
+    <mat-error *ngIf="autorForm.get('email')?.invalid && autorForm.get('email')?.touched">
+      El email es necesario.
+    </mat-error>
+  </mat-form-field>
+  <br />
+
+  <mat-form-field class="input">
+    <mat-label>Contraseña:</mat-label>
+    <input matInput type="password" formControlName="password" [(ngModel)]="password" />
+    <mat-error *ngIf="autorForm.get('password')?.invalid && autorForm.get('password')?.touched">
+      La contraseña es necesaria.
+    </mat-error>
+  </mat-form-field>
+
+
+
+  <div class="botones">
+    <button mat-raised-button color="primary" type="submit" [disabled]="autorForm.invalid"
+      (click)="onSubmit(nombre, apellidos, email, password)" class="titulo">Actualizar</button>
+    <button mat-raised-button color="primary" mat-dialog-close class="cierra">Cerrar</button>
+    <button mat-raised-button class="elim" (click)="borrarAutor()">Eliminar</button>
+  </div>
+</form>

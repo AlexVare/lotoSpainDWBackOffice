@@ -1,0 +1,65 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'over'" [opened]="(isHandset$ | async) === false">
+    <mat-toolbar class="title"> <mat-icon class="blue">menu</mat-icon> <span class="titulo">LOTERIA <span
+          class="blue">VIVEIRO</span></span></mat-toolbar>
+    <mat-nav-list>
+      <div class="sidenav__item" id="inicio">
+        <div class="sidenav__item" id="row" (click)="true">
+          <mat-icon>home</mat-icon> <span class="menu"><a routerLink="home" class="enlaces">Inicio</a></span>
+        </div>
+      </div>
+      <div class="container">
+        <button type="button"(click)="logout()" class="logout">Cerrar Sesion</button>
+      </div>
+
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Tienda
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="sidenav__item" id="tienda" (click)="navigateToTienda()">
+            <div class="sidenav__block" id="row">
+              <div class="sidenav__item__text">
+                <mat-icon>bolt</mat-icon> <span class="menu"><a routerLink="productos" class="enlaces">Productos</a></span>
+              </div>
+              <div class="sidenav__item__number">25</div>
+            </div>
+            </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Blog
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="sidenav__item" id="posts" (click)="navigateToPost()">
+            <div class="sidenav__item" id="row">
+              <mat-icon>description</mat-icon> <span class="menu"><a routerLink="post" class="enlaces">Post</a></span>
+            </div>
+          </div>
+          <div class="sidenav__item" id="autores" (click)="navigateToAutores()">
+              <div class="sidenav__item" id="row">
+              <mat-icon>people</mat-icon> <span class="menu"><a routerLink="autores" class="enlaces">Autores</a></span>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar class="header">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span></span>
+    </mat-toolbar>
+
+    <router-outlet></router-outlet>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

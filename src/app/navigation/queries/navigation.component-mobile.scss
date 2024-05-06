@@ -1,0 +1,34 @@
+@media (max-width: 950px) {
+  .sidenav{
+    width: 30vw;
+    &__item{
+      width: 24vw;
+    }
+  }
+  .titulo{
+    font-size: 20px;
+  }
+
+}
+@media (max-width: 450px) {
+  .sidenav{
+    width: 70vw;
+
+    &__item{
+      width: 55vw;
+      &__text{
+        width: 100%;
+      }
+      &__number{
+        width: fit-content;
+        margin-right: 10px;
+      }
+    }
+    &__block{
+      width: 55vw;
+    }
+  }
+  .titulo{
+    font-size: 20px;
+  }
+}

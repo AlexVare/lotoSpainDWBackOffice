@@ -1,0 +1,69 @@
+<div class="body">
+  <div class="header">
+    <div class="header__text"> Productos</div>
+    <div class="btn_wrapper">
+      <button class="header__btn" (click)="todoCero()">Todo a cero</button>
+      <button class="header__btn" (click)="generarProducto()">Nuevo producto</button>
+      <button class="header__btn" (click)="cargaMasiva()">Carga masiva</button>
+    </div>
+
+  </div>
+  <div class="section">
+    <div class="section__title">Total productos</div>
+    <div class="section__number">{{data.length}}</div>
+  </div>
+
+  <div class="custom_container">
+    <div class="custom_container">
+      <div class="search">
+        <!-- <mat-form-field> -->
+          <mat-icon (click)="searchAndEditProduct(input.value)">search</mat-icon>
+          <input
+            matInput
+            (keyup.enter)="searchAndEditProduct(input.value)"
+            placeholder="Buscar"
+            #input
+          />
+          <!-- </button> -->
+        <!-- </mat-form-field> -->
+      </div>
+
+    <table mat-table [dataSource]="data | paginate: {itemsPerPage: pageSize, currentPage: pageNumber}" class="elevation">
+      <!--  -->
+      <ng-container matColumnDef="Nombre">
+        <th mat-header-cell *matHeaderCellDef class="head">Nombre</th>
+        <td mat-cell *matCellDef="let element" class="text">{{element.nombre}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="NumeroBoleto">
+        <th mat-header-cell *matHeaderCellDef class="head">Nº boleto</th>
+        <td mat-cell *matCellDef="let element" class="text">{{element.numero}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Precio">
+        <th mat-header-cell *matHeaderCellDef class="head">Precio</th>
+        <td mat-cell *matCellDef="let element" class="text">{{element.precio | euro}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Disponibilidad">
+        <th mat-header-cell *matHeaderCellDef class="head" id="col_normal">Stock</th>
+        <td mat-cell *matCellDef="let element">
+          <div *ngIf="element.disponibilidad" ><mat-icon class="disponible">done</mat-icon></div>
+          <div *ngIf="!element.disponibilidad" ><mat-icon class="no_disponible">close</mat-icon></div>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Accions">
+        <th mat-header-cell *matHeaderCellDef class="head">Acción</th>
+        <td mat-cell *matCellDef="let element">
+          <button class="line" (click)="editBoleto(element)"><mat-icon>edit</mat-icon></button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <pagination-controls (pageChange)="pageNumber = $event" class="control"></pagination-controls>
+    <!-- <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator> -->
+  </div>
+</div>

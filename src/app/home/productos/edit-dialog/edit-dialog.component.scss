@@ -1,0 +1,26 @@
+.formulario{
+  width: 45vw;
+  height: 85vh;
+}
+
+.cierra{
+  background-color: gray;
+}
+
+.input{
+  width: 40vw;
+  margin-top: 30px;
+  margin-left: 40px;
+}
+
+.botones{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 10vh;
+}
+
+.elim{
+  background-color: red !important;
+}

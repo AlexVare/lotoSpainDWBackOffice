@@ -1,0 +1,57 @@
+<form [formGroup]="publicacionForm" class="formulario">
+
+  <mat-form-field class="input">
+    <mat-label>Nombre:</mat-label>
+    <input matInput type="text" formControlName="nombre" [(ngModel)]="nombre">
+    <mat-error *ngIf="publicacionForm.get('nombre')?.invalid && publicacionForm.get('nombre')?.touched">
+      El nombre es necesario.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="input">
+    <mat-label> Número: </mat-label>
+    <input matInput type="text" formControlName="numero" [(ngModel)]="numero">
+    <mat-error *ngIf="publicacionForm.get('numero')?.invalid && publicacionForm.get('numero')?.touched">
+      El número es necesario.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="input">
+    <mat-label> Serie: </mat-label>
+    <input matInput type="text" formControlName="serie" [(ngModel)]="serie">
+    <mat-error *ngIf="publicacionForm.get('serie')?.invalid && publicacionForm.get('serie')?.touched">
+      La serie es necesaria.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="input">
+    <mat-label> Fraccion: </mat-label>
+    <input matInput type="text" formControlName="fraccion" [(ngModel)]="fraccion">
+    <mat-error *ngIf="publicacionForm.get('fraccion')?.invalid && publicacionForm.get('fraccion')?.touched">
+      La fracción es necesaria.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="input">
+    <mat-label> Precio: </mat-label>
+    <input matInput type="text" formControlName="precio" [(ngModel)]="precio">
+    <mat-error *ngIf="publicacionForm.get('precio')?.invalid && publicacionForm.get('precio')?.touched">
+      El precio es necesario.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="input">
+    <mat-label> Disponibilidad: </mat-label>
+    <input matInput type="text" formControlName="disponibilidad" [(ngModel)]="disponibilidad">
+    <mat-error *ngIf="publicacionForm.get('disponibilidad')?.invalid && publicacionForm.get('disponibilidad')?.touched">
+      La disponibilidad es necesaria siendo 1 disponible y 0 no disponible.
+    </mat-error>
+  </mat-form-field>
+
+  <div class="botones">
+    <button mat-raised-button color="primary" type="submit" [disabled]="publicacionForm.invalid" (click)="onSubmit(nombre, numero, serie, fraccion, precio, disponibilidad)" class="titulo">Actualizar</button>
+    <button mat-raised-button color="primary" mat-dialog-close class="cierra">Cerrar</button>
+    <button mat-raised-button class="elim" (click)="borrarBoleto()">Eliminar</button>
+  </div>
+
+</form>

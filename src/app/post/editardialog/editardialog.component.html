@@ -1,0 +1,57 @@
+<form [formGroup]="publicacionForm"  class="formulario">
+  <mat-form-field class="input">
+    <mat-label>titulo:</mat-label>
+    <input matInput type="text" formControlName="titulo" [(ngModel)]="titulo" >
+    <mat-error *ngIf="publicacionForm.get('titulo')?.invalid && publicacionForm.get('titulo')?.touched">
+      Título es requerido.
+    </mat-error>
+  </mat-form-field>
+  <br>
+
+   <mat-form-field class="input">
+    <mat-label>Autor:</mat-label>
+    <input matInput type="text" formControlName="autor" [(ngModel)]="autor" >
+    <mat-error *ngIf="publicacionForm.get('autor')?.invalid && publicacionForm.get('autor')?.touched">
+      Autor es requerido.
+    </mat-error>
+  </mat-form-field>
+  <br>
+
+
+
+
+    <mat-form-field class="input">
+      <mat-label>fehcha:</mat-label>
+      <input matInput type="text"  formControlName="fechaPublicacion"  readonly [(ngModel)]="fechaPublicacion">
+      <mat-error *ngIf="publicacionForm.get('fechaPublicacion')?.invalid && publicacionForm.get('fechaPublicacion')?.touched">
+        Fecha es requerido.
+      </mat-error>
+
+
+    <mat-error *ngIf="publicacionForm.get('fechaPublicacion')?.invalid && publicacionForm.get('fechaPublicacion')?.touched">
+      fechadepublicacion es requerida.
+    </mat-error>
+
+  </mat-form-field>
+  <br>
+  <mat-form-field class="input">
+
+    <mat-label > contenido </mat-label>
+  <textarea  matInput type="text" formControlName="contenido" [(ngModel)]="contenido"  > </textarea>
+
+
+
+    <mat-error *ngIf="publicacionForm.get('contenido')?.invalid && publicacionForm.get('contenido')?.touched">
+      contenido es requerido
+    </mat-error>
+  </mat-form-field>
+  <br>
+
+  <div class="botones">
+    <button mat-raised-button color="primary"  (click)="onSubmit(titulo, contenido, fechaPublicacion, autor)" class="Actualizar">Actualizar</button>
+
+    <button mat-raised-button color="primary"  (click)='closeDialog()' class="cierra">Cerrar</button>
+
+  </div>
+
+</form>

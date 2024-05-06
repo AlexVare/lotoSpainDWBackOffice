@@ -1,0 +1,44 @@
+<div class="dialog">
+  <div class="buscador">
+     <input type="file" placeholder="Selecciona el archivo" class="search" (change)="leerArchivo($event)" #fileInput accept=".xlsx, .csv">
+    <button class="blue" (click)="downloadFile()">Descarga el formato</button>
+  </div>
+  <div class="container">
+    <table mat-table [dataSource]="lista | paginate: {itemsPerPage: pageSize, currentPage: pageNumber}" class="elevation">
+      <ng-container matColumnDef="Foto">
+        <th mat-header-cell *matHeaderCellDef class="head"></th>
+        <td mat-cell *matCellDef="let element" class="text"><img src="../../../../assets/roma.png"></td>
+      </ng-container>
+
+      <ng-container matColumnDef="Nombre">
+        <th mat-header-cell *matHeaderCellDef class="head">Nombre</th>
+        <td mat-cell *matCellDef="let element" class="text__title">{{element.nombre}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="NumeroBoleto">
+        <th mat-header-cell *matHeaderCellDef class="head">Boleto</th>
+        <td mat-cell *matCellDef="let element" class="text">{{element.numero}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Precio">
+        <th mat-header-cell *matHeaderCellDef class="head">Precio</th>
+        <td mat-cell *matCellDef="let element" class="text">{{element.precio | euro}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Disponibilidad">
+        <th mat-header-cell *matHeaderCellDef class="head">Disponibilidad</th>
+        <td mat-cell *matCellDef="let element">
+          <div *ngIf="element.disponibilidad" class="true">Disponible</div>
+          <div *ngIf="!element.disponibilidad" class="false">No disponible</div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <pagination-controls (pageChange)="pageNumber = $event" class="control"></pagination-controls>
+  </div>
+  <div class="boton">
+    <button class="blue" (click)="uploadProduct()">Subir</button>
+  </div>
+</div>

@@ -1,0 +1,143 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Rajdhani:wght@700&display=swap');
+
+
+
+.ng-valid:not(form)ng-touched {
+  border-left: 5px solid #4CAF50!important;
+}
+
+.ng-invalid:not(form)ng-touched {
+  border-left: 5px solid #c03228!important;
+}
+
+/* Card y borde formulario */
+
+#formulario{
+  box-sizing: border-box;
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px;
+  gap: 24px;
+  isolation: isolate;
+  overflow: hidden;
+
+  position: absolute;
+  width: 432px;
+  height: 443px;
+  left: calc(50% - 432px/2);
+  top: calc(50% - 443px/2 - 0.5px);
+
+  background: rgba(255, 255, 255, 0.3);
+  /* Grey/200 */
+
+  border: 1px solid #E5E7EB;
+  box-shadow: 0px 24px 52px rgba(0, 0, 0, 0.12);
+  border-radius: 16px;
+}
+
+
+
+/* Loteria ViveirO divs y info */
+
+.main{
+  display: flex;
+  color: #252A34;
+  font-size: 30px;
+  font-family: Raj;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+
+}
+
+.main span{
+  color:blue;
+  margin:auto;
+}
+
+
+.submain{
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  color: var(--grey-900, #111827);
+  text-align: center;
+  font-size: 24px;
+  font-family: DM Sans;
+  font-weight: 700;
+  line-height: 30px;
+}
+
+
+.mailform{
+  display: flex;
+  padding: 8px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  align-self: stretch;
+  border-radius: 8px;
+  /* Shadow/sm */
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.16);
+}
+
+.passform{
+  display: flex;
+  padding: 8px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  align-self: stretch;
+  border-radius: 8px;
+  /* Shadow/sm */
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.16);
+}
+
+
+.labelform{
+  padding: 0.2em 0;
+}
+
+.labelform span{
+  color:red;
+}
+
+/* Loteria ViveirO divs y info */
+
+
+
+/* Boton de login y checkbox */
+
+
+#form-check{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  height: 16px;
+  margin:0 auto;
+  margin-left: 25%; 
+  }
+
+
+
+.loginboton{
+  display: flex;
+  padding: 8px 16px;
+  color:white;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  align-self: stretch;
+  border-radius: 8px;
+  background: #1016B4;
+
+/* Shadow/sm */
+box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.16);
+}
+
+
+/*FIN DE BOTON DE LOGIN Y CHECKBOX*/
