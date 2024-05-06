@@ -11,5 +11,5 @@ RUN npm ci
 COPY . .
 RUN npm run build --prod
 FROM nginx:alpine
-COPY --from=build /source/dist/lotoSpainDWBack /usr/share/nginx/html
+COPY --from=build /source/dist/app-lotoSpainDWBack /usr/share/nginx/html
 COPY default.conf /etc/nginx/conf.d/default.conf
